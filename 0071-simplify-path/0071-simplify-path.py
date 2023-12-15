@@ -4,7 +4,8 @@ class Solution(object):
         :type path: str
         :rtype: str
         """
-        stack = Stack()
+        #stack = Stack()
+        stack = deque()
         
         elems = path.split('/')
         for elem in elems:
@@ -13,17 +14,21 @@ class Solution(object):
             if elem == '.':
                 continue
             if elem == '..':
-                if not stack.isEmpty():
+                if len(stack) is not 0:
                     stack.pop()
                 continue
-            newElem = StackElem(elem)
-            stack.push(newElem)
+            #newElem = StackElem(elem)
+            #stack.push(newElem)
+            stack.append(elem)
         
         canonicalPath = ''
         
-        while not stack.isEmpty():
+        #while not stack.isEmpty():
+        while len(stack) is not 0:
+            #elem = stack.pop()
             elem = stack.pop()
-            canonicalPath = '/' + elem.data + canonicalPath
+            #canonicalPath = '/' + elem.data + canonicalPath
+            canonicalPath = '/' + elem + canonicalPath
 
         if len(canonicalPath) == 0:
             canonicalPath = '/'
