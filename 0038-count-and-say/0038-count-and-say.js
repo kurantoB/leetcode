@@ -8,7 +8,7 @@ var countAndSay = function(n) {
     }
     
     const countAndSayHelper = (val) => {
-        strVal = '' + val
+        const strVal = '' + val
         let builder = ''
         let currNum = strVal[0]
         let currCount = 0
