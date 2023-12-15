@@ -12,12 +12,12 @@ var countAndSay = function(n) {
         let builder = ''
         let currNum = strVal[0]
         let currCount = 0
-        for (let i = 0; i < strVal.length; i++) {
-            if (strVal[i] === currNum) {
+        for (let i of strVal) {
+            if (i === currNum) {
                 currCount++
             } else {
                 builder += currCount + '' + currNum
-                currNum = strVal[i]
+                currNum = i
                 currCount = 1
             }
         }
